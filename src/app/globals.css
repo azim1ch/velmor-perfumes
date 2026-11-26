@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-ink font-sans text-cream antialiased;
+    font-feature-settings: "tnum" 1; /* ровные цифры в ценах */
+  }
+  :focus-visible {
+    outline: 2px solid #c5a16b;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  ::selection {
+    background: #c5a16b;
+    color: #10100f;
+  }
+  /* скрываем стрелки у числовых полей */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1360px] px-4 sm:px-6 lg:px-10;
+  }
+  .btn-gold {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-sm bg-gold px-6 text-[15px] font-semibold text-ink transition-colors hover:bg-gold-soft disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-outline {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-sm border border-line bg-transparent px-5 text-[15px] font-medium text-cream transition-colors hover:border-muted hover:bg-raised;
+  }
+  .field {
+    @apply h-11 w-full rounded-sm border border-line bg-raised px-3 text-[15px] text-cream placeholder:text-muted/80 focus:border-gold focus:outline-none;
+  }
+  .eyebrow {
+    @apply text-[11px] font-medium uppercase tracking-[0.18em] text-muted;
+  }
+}

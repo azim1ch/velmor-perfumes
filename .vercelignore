@@ -1,0 +1,9 @@
+# Не загружать на Vercel
+node_modules
+.next
+.env
+.env*.local
+.claude
+# исходные материалы владельца (постеры, таблица цен) — сайту не нужны
+materials
+upload
